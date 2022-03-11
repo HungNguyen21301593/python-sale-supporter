@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+    chrome:
+        image: selenium/standalone-chrome:latest
+        hostname: chrome
+        privileged: true
+    sale-supporter-chotot-hcm:
+        build: .
+        user: root
+        depends_on: 
+            - chrome
+        environment:
+            - TARGET=chotot_hcm
+            - START_PAGE=1
+            - END_PAGE=200
+
+    # sale-supporter-chotot-longan:
+    #     build: .
+    #     user: root
+    #     depends_on: 
+    #         - chrome
+    #     environment:
+    #         - TARGET=chotot_longan
+    #         - START_PAGE=1
+    #         - END_PAGE=200
+
+
+    # sale-supporter-chotot-binhduong:
+    #     build: .
+    #     user: root
+    #     depends_on: 
+    #         - chrome
+    #     environment:
+    #         - TARGET=chotot_binhduong
+    #         - START_PAGE=1
+    #         - END_PAGE=200
+
+    # sale-supporter-alo-longan:
+    #     build: .
+    #     user: root
+    #     depends_on: 
+    #         - chrome
+    #     environment:
+    #         - TARGET=alonhadat_longan
+    #         - START_PAGE=1
+    #         - END_PAGE=500
+
+    # sale-supporter-bds-123:
+    #     build: .
+    #     user: root
+    #     depends_on: 
+    #         - chrome
+    #     environment:
+    #         - TARGET=bds123
+    #     volumes: 
+    #     - ./:/
